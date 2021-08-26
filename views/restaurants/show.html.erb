@@ -1,0 +1,29 @@
+<div class="container bg-white my-5 p-5 shadow rounded">
+<div class="row">
+  <div class="col-md-6">
+      <h2 class="mb-2"> <%= @restaurant.name %>  </h2>
+   <p><span><i class="fas fa-location-arrow"></i></span>  <%= @restaurant.address %>   </p>
+  <p> <span> <i class="fas fa-phone"></i> </span>  <%= @restaurant.phone_number %>   </p>
+      <p> <span> <i class="fas fa-utensils"></i> </span><%= @restaurant.category %>   </p>
+
+      <h3>Reviews</h3>
+      <ul class="list-group border border-muted">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item">
+            <%= review.content %> - <%= link_to 'Delete', review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant)  %> |
+
+      <%= link_to 'Back', restaurants_path %>
+      <%# end of text-box %>
+  </div>
+  <div class="col-md-6">
+    <img class="show-image" src="https://picsum.photos/1200/800?random}">
+      <%# end of img-containerx %>
+  </div>
+</div>
+<%# end of container %>
+</div>

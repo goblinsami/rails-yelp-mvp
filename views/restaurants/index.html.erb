@@ -1,0 +1,39 @@
+
+<div class="container bg-white my-5 pt-5 shadow">
+<div class="text-center">
+<h1 class="text-center">Restaurant Directory </h1>
+<%= link_to '+ Add New Restaurant', new_restaurant_path, class:"mt-3 btn btn-outline-secondary" %>
+</div>
+
+
+<div class="row justify-content-around m-0">
+
+
+<% @restaurants.each do |restaurant| %>
+
+<div class="card m-5 shadow p-3" style="width: 250px">
+ <%= link_to restaurant_path(restaurant) do%>
+<img class="card-img-top" src=<%="#{@url}"%>>
+<% @url = "https://picsum.photos/300/300?random=#{@seed}" %>
+<% @seed= rand(0..699) %>
+<div class="card-body">
+
+<h3><%= restaurant.id %> <%= restaurant.name %></h3>
+<% end %>
+
+</div>
+<%# end of body-card %>
+</div>
+<% end %>
+<%# end of card %>
+</div>
+<%# end of row %>
+</div>
+
+
+
+
+
+
+
+</div>
